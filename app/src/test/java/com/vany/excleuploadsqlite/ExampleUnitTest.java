@@ -1,4 +1,4 @@
-package com.example.excleuploadsqlite;
+package com.vany.excleuploadsqlite;
 
 import org.junit.Test;
 
