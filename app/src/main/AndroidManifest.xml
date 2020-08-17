@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vany.excleuploadsqlite">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -10,13 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/dashborad"
-            android:name="com.vany.excleuploadsqlite.Dashborad"
-            >
-
-        </activity>
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -24,6 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Excle.UploadExcle"
+            android:label="@string/upload_excle"
+            android:parentActivityName=".Dashborad"
+            />
+        <activity android:name=".Excle.ExportExcle"
+            android:label="@string/export_excle"
+            android:parentActivityName=".Dashborad"
+            />
+        <activity
+            android:name=".Dashborad"
+            android:label="@string/dashborad"
+            android:parentActivityName=".MainActivity"
+            />
     </application>
-
 </manifest>

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">ExcleUploadSQLite</string>
     <string name="dashborad">Dashborad</string>
+    <string name="upload_excle">Upload Excle</string>
+    <string name="export_excle">Export Excle</string>
     <string name="main_activtiy_mainHeading">Welcome to Exlce and SQLite Database</string>
     <string name="main_activity_enter_app">Go to Applications</string>
     <string name="dash_export_button">EXPORT  EXCLE </string>

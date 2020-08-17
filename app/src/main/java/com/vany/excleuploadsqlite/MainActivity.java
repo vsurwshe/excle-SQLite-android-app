@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.vany.excleuploadsqlite.Excle.UploadExcle;
-
 public class MainActivity extends AppCompatActivity {
 
     Button enterApp;
