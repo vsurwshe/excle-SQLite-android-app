@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">ExcleUploadSQLite</string>
-    <string name="title_activity_upload_excle">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="dashborad">Dashborad</string>
+    <string name="main_activtiy_mainHeading">Welcome to Exlce and SQLite Database</string>
+    <string name="main_activity_enter_app">Go to Applications</string>
+    <string name="dash_export_button">EXPORT  EXCLE </string>
+    <string name="dash_upload_button">UPLOAD  EXCLE </string>
 </resources>
