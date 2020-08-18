@@ -20,14 +20,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Excle.UploadExcle"
+            android:name=".Excel.UploadExcel"
             android:label="@string/upload_excle"
             android:parentActivityName=".Dashborad"
             />
-        <activity android:name=".Excle.ExportExcle"
+        <activity
+            android:name=".Excel.ExportExcel"
             android:label="@string/export_excle"
-            android:parentActivityName=".Dashborad"
-            />
+            android:parentActivityName=".Dashborad" />
         <activity
             android:name=".Dashborad"
             android:label="@string/dashborad"

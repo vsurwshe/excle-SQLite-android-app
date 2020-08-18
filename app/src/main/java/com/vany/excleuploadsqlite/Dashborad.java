@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.vany.excleuploadsqlite.Excle.ExportExcle;
-import com.vany.excleuploadsqlite.Excle.UploadExcle;
+import com.vany.excleuploadsqlite.Excel.ExportExcel;
+import com.vany.excleuploadsqlite.Excel.UploadExcel;
 
 public class Dashborad extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class Dashborad extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Dashborad.this, "You enter into upload excle componet",Toast.LENGTH_LONG).show();
-                Intent uploadIntent= new Intent(Dashborad.this, UploadExcle.class);
+                Intent uploadIntent = new Intent(Dashborad.this, UploadExcel.class);
                 startActivity(uploadIntent);
             }
         }));
@@ -36,7 +36,7 @@ public class Dashborad extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Dashborad.this,"You enter into export excle compoent",Toast.LENGTH_LONG).show();
-                Intent exportIntent= new Intent(Dashborad.this,ExportExcle.class);
+                Intent exportIntent = new Intent(Dashborad.this, ExportExcel.class);
                 startActivity(exportIntent);
             }
         });
