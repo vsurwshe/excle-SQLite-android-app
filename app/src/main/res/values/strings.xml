@@ -1,10 +1,15 @@
 <resources>
-    <string name="app_name">ExcleUploadSQLite</string>
-    <string name="dashborad">Dashborad</string>
-    <string name="upload_excle">Upload Excle</string>
-    <string name="export_excle">Export Excle</string>
-    <string name="main_activtiy_mainHeading">Welcome to Exlce and SQLite Database</string>
+    <string name="app_name">ExcelUploadSQLite</string>
+    <string name="dashborad">Dashboard</string>
+    <string name="upload_excle">Upload Excel</string>
+    <string name="export_excle">Export Excel</string>
+    <string name="main_activtiy_mainHeading">Welcome to Excel and SQLite Database</string>
     <string name="main_activity_enter_app">Go to Applications</string>
-    <string name="dash_export_button">EXPORT  EXCLE </string>
-    <string name="dash_upload_button">UPLOAD  EXCLE </string>
+    <string name="dash_export_button">EXPORT  EXCEL </string>
+    <string name="dash_upload_button">UPLOAD  EXCEL </string>
+    <string name="upload_excel_textView_text">Welcome to upload the excel</string>
+    <string name="upload_excel_upload_button_text">Load the Excel File</string>
+    <string name="main_activtiy_edit_username_text">Admin</string>
+    <string name="main_activtiy_edit_username_hint_text">Enter username</string>
+    <string name="main_activtiy_edit_password_hint_text">Enter password</string>
 </resources>
