@@ -12,11 +12,17 @@ import android.widget.Toast;
 
 import com.vany.excleuploadsqlite.R;
 
+import org.apache.poi.ss.usermodel.Row;
+
+import java.io.IOException;
+import java.util.Iterator;
+
 public class UploadExcel extends AppCompatActivity {
     public static final int PICKFILE_RESULT_CODE = 1;
 
     Button uploadButton;
     TextView filePathTextView;
+
 
     private Uri fileUri;
     private String filePath;
@@ -39,17 +45,25 @@ public class UploadExcel extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        switch (requestCode) {
-//            case PICKFILE_RESULT_CODE:
-//                if (resultCode == -1) {
-//                    fileUri = data.getData();
-//                    filePath = fileUri.getPath();
-//                    filePathTextView.setText(filePath);
-//                }
-//                break;
-//        }
-//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case PICKFILE_RESULT_CODE:
+                if (resultCode == -1) {
+                    fileUri = data.getData();
+                    filePath = fileUri.getPath();
+                    filePathTextView.setText(filePath);
+                    ReadExcel readExcelObject = new ReadExcel(filePath);
+                    Iterator<Row> dataReadFromExcel = null;
+                    try {
+                        dataReadFromExcel = readExcelObject.readExcel();
+                        Toast.makeText(UploadExcel.this, "" + dataReadFromExcel, Toast.LENGTH_LONG).show();
+                    } catch (IOException e) {
+                        Toast.makeText(UploadExcel.this, "" + e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+                break;
+        }
+    }
 }
