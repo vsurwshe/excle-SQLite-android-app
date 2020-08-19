@@ -11,13 +11,13 @@ public class DBConstants {
     private Context context;
     private SQLiteDatabase database;
 
-    static final String USER_TABLE = "customers";
-    static final String CUSTOMER_ID = "customer_id";
-    static final String CUSTOMER_NAME = "customer_name";
-    static final String CUSTOMER_CONTACT_NO = "customer_contact_no";
-    static final String CUSTOMER_EMAIL = "customer_email";
-    static final String CUSTOMER_ADDRESS = "customer_address";
-    static final String CUSTOMER_FEEDBACK = "customer_feedback";
+    public static final String USER_TABLE = "customers";
+    public static final String CUSTOMER_ID = "customer_id";
+    public static final String CUSTOMER_NAME = "customer_name";
+    public static final String CUSTOMER_CONTACT_NO = "customer_contact_no";
+    public static final String CUSTOMER_EMAIL = "customer_email";
+    public static final String CUSTOMER_ADDRESS = "customer_address";
+    public static final String CUSTOMER_FEEDBACK = "customer_feedback";
 
     public DBConstants(Context context) {
         this.context = context;

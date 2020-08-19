@@ -93,7 +93,6 @@ public class UploadExcel extends AppCompatActivity {
         switch (requestCode) {
             case PICKFILE_RESULT_CODE:
                 if (resultCode == -1) {
-
                     try {
                         fileUri = data.getData();
                         File excelFilePath = new File(getRealPathFromURI(data.getData()));
@@ -104,10 +103,8 @@ public class UploadExcel extends AppCompatActivity {
                         ReadExcel readExcelObject = new ReadExcel(excelFilePath, dbConstants, UploadExcel.this);
                         readExcelObject.readExcel();
                         dbConstants.close();
-
                     } catch (IOException e) {
                         Toast.makeText(UploadExcel.this, "" + e.getMessage(), Toast.LENGTH_LONG).show();
-
                     } catch (Exception exp) {
                         Toast.makeText(UploadExcel.this, "" + exp.getMessage(), Toast.LENGTH_LONG).show();
                         System.out.println("Error: " + exp.getMessage());
@@ -130,5 +127,4 @@ public class UploadExcel extends AppCompatActivity {
         }
         return result;
     }
-
 }

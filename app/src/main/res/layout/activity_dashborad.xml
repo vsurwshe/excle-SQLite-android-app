@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dashborad">
+    tools:context=".Dashboard">
 
     <Button
         android:id="@+id/upload_button"
@@ -27,4 +27,17 @@
         app:layout_constraintEnd_toStartOf="@+id/upload_button"
         tools:layout_editor_absoluteY="36dp"
         tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dash_recycle_view"
+        android:layout_width="409dp"
+        android:layout_height="645dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

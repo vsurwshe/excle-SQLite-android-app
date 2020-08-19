@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public void userLogin(String username, String password) {
         if (username.equals("Admin") && password.equals("123456")) {
             Toast.makeText(MainActivity.this, "You enter dashboard successfully. ", Toast.LENGTH_LONG).show();
-            Intent dashboard = new Intent(MainActivity.this, Dashborad.class);
+            Intent dashboard = new Intent(MainActivity.this, Dashboard.class);
             startActivity(dashboard);
         } else {
             Toast.makeText(MainActivity.this, "Sorry your correctional is wrong", Toast.LENGTH_LONG).show();

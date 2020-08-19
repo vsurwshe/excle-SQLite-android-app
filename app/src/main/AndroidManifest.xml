@@ -25,14 +25,14 @@
         <activity
             android:name=".Excel.UploadExcel"
             android:label="@string/upload_excle"
-            android:parentActivityName=".Dashborad"
+            android:parentActivityName=".Dashboard"
             />
         <activity
             android:name=".Excel.ExportExcel"
             android:label="@string/export_excle"
-            android:parentActivityName=".Dashborad" />
+            android:parentActivityName=".Dashboard" />
         <activity
-            android:name=".Dashborad"
+            android:name=".Dashboard"
             android:label="@string/dashborad"
             android:parentActivityName=".MainActivity"
             />
