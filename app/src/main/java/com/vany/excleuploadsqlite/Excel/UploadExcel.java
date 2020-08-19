@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vany.excleuploadsqlite.R;
+import com.vany.excleuploadsqlite.db.DBConstants;
 
 import org.apache.poi.ss.usermodel.Row;
 
@@ -96,17 +97,20 @@ public class UploadExcel extends AppCompatActivity {
                     try {
                         fileUri = data.getData();
                         File excelFilePath = new File(getRealPathFromURI(data.getData()));
-                        System.out.println("Excel File : " + excelFilePath);
                         filePathTextView.setVisibility(1);
                         filePathTextView.setText(excelFilePath.toString());
-                        ReadExcel readExcelObject = new ReadExcel(excelFilePath);
-                        Iterator<Row> dataReadFromExcel = null;
-                        dataReadFromExcel = readExcelObject.readExcel();
-                        System.out.println("Excle: " + dataReadFromExcel);
+                        DBConstants dbConstants = new DBConstants(this);
+                        dbConstants.open();
+                        ReadExcel readExcelObject = new ReadExcel(excelFilePath, dbConstants, UploadExcel.this);
+                        readExcelObject.readExcel();
+                        dbConstants.close();
+
                     } catch (IOException e) {
                         Toast.makeText(UploadExcel.this, "" + e.getMessage(), Toast.LENGTH_LONG).show();
+
                     } catch (Exception exp) {
                         Toast.makeText(UploadExcel.this, "" + exp.getMessage(), Toast.LENGTH_LONG).show();
+                        System.out.println("Error: " + exp.getMessage());
                     }
                     break;
                 }

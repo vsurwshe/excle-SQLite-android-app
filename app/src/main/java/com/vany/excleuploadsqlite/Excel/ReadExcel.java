@@ -1,5 +1,13 @@
 package com.vany.excleuploadsqlite.Excel;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import androidx.annotation.RequiresPermission;
+
+import com.vany.excleuploadsqlite.db.DBConstants;
+
+import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.*;
@@ -14,35 +22,64 @@ import java.util.Iterator;
 public class ReadExcel {
 
     private File excelFile;
+    private Context context;
+    private DBConstants dbConstants;
 
-    ReadExcel(File filePath) {
+
+    ReadExcel(File filePath, DBConstants dbConstants, Context context) {
         this.excelFile = filePath;
+        this.dbConstants = dbConstants;
+        this.context = context;
     }
 
-    public Iterator<Row> readExcel() throws IOException {
+    public void readExcel() throws IOException {
         InputStream fileInputStream = null;
         Workbook workbook = null;
         Iterator<Row> rowIterator = null;
         try {
             fileInputStream = new FileInputStream(this.excelFile);
-            System.out.println("Sheet " + fileInputStream + " " + this.excelFile);
+            System.out.println("Sheet " + this.excelFile);
             //Create Workbook instance holding reference to .xlsx file
             workbook = new HSSFWorkbook(fileInputStream);
-            System.out.println("Sheet " + workbook);
             //Get first/desired sheet from the workbook
             Sheet sheet = workbook.getSheetAt(0);
-            System.out.println("Sheet " + sheet);
             //Iterate through each rows one by one
             rowIterator = sheet.iterator();
-            System.out.println("Sheet " + sheet);
+
+            if (sheet.getPhysicalNumberOfRows() > 0) {
+                for (int rowNumber = sheet.getFirstRowNum() + 1; rowNumber < sheet.getPhysicalNumberOfRows(); rowNumber++) {
+                    Row row = sheet.getRow(rowNumber);
+                    // check null.
+                    if (row == null) {
+                        continue;
+                    }
+                    insertRow(row);
+//                    for (int cellNumber = row.getFirstCellNum(); cellNumber < row.getPhysicalNumberOfCells(); cellNumber++) {
+//                        System.out.print(" / "+row.getCell(cellNumber).toString());
+//                    }
+                }
+            } else {
+                Toast.makeText(this.context, "There is no records in Excel Sheet", Toast.LENGTH_LONG).show();
+            }
+
         } catch (IOException e) {
-            e.printStackTrace();
+            Toast.makeText(this.context, "" + e.getMessage(), Toast.LENGTH_LONG).show();
+            System.out.println("Error : " + e.getMessage());
         } finally {
             if (workbook != null) {
                 fileInputStream.close();
                 workbook.close();
             }
         }
-        return rowIterator;
+    }
+
+    public void insertRow(Row insertTableRow) {
+        System.out.println("Row Data " + insertTableRow);
+        dbConstants.insertData(
+                insertTableRow.getCell(0).toString(),
+                insertTableRow.getCell(1).toString(),
+                insertTableRow.getCell(2).toString(),
+                insertTableRow.getCell(3).toString(),
+                insertTableRow.getCell(4).toString());
     }
 }
