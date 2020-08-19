@@ -42,7 +42,8 @@ public class CustomerAdpater extends RecyclerView.Adapter<CustomerAdpater.Custom
 
     @Override
     public int getItemCount() {
-        return myCustomerList.size();
+        System.out.println("Size " + myCustomerList + " / " + myCustomerList.size());
+        return 10;
     }
 
     public class CustomerViewHolder extends RecyclerView.ViewHolder {
