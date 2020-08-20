@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,20 +35,28 @@ public class CustomerAdpater extends RecyclerView.Adapter<CustomerAdpater.Custom
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CustomerViewHolder holder, final int position) {
         holder.cust_name.setText(myCustomerList.get(position).getCuName());
         holder.cust_contact.setText(myCustomerList.get(position).getCuContactNumber());
         holder.cust_email.setText(myCustomerList.get(position).getCuEmail());
+        holder.cust_address.setText(myCustomerList.get(position).getCuAddress());
+        holder.cust_image.setImageResource(R.drawable.user);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "You Click on the " + position + " this record", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         System.out.println("Size " + myCustomerList + " / " + myCustomerList.size());
-        return 10;
+        return myCustomerList.size();
     }
 
     public class CustomerViewHolder extends RecyclerView.ViewHolder {
-        TextView cust_name, cust_email, cust_contact;
+        TextView cust_name, cust_email, cust_contact, cust_address;
         ImageView cust_image;
 
         public CustomerViewHolder(@NonNull View itemView) {
@@ -56,6 +65,7 @@ public class CustomerAdpater extends RecyclerView.Adapter<CustomerAdpater.Custom
             cust_contact = itemView.findViewById(R.id.cust_layout_contact);
             cust_email = itemView.findViewById(R.id.cust_layout_email);
             cust_image = itemView.findViewById(R.id.cust_layout_image);
+            cust_address = itemView.findViewById(R.id.cust_layout_address);
         }
     }
 }
