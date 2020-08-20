@@ -84,7 +84,6 @@ public class Dashboard extends AppCompatActivity {
             CustomerAdpater myCustomerAdapter = new CustomerAdpater(this, myCustomerList);
             custRecycleView.setAdapter(myCustomerAdapter);
             custRecycleView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-            System.out.println("Customer " + myCustomerList);
         } catch (Exception exp) {
             Toast.makeText(Dashboard.this, "" + exp.getMessage(), Toast.LENGTH_LONG).show();
         } finally {

@@ -1,6 +1,8 @@
 package com.vany.excleuploadsqlite.pojo;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     // this is properties
     private Integer cuId;
     private String cuName;

@@ -1,6 +1,7 @@
 package com.vany.excleuploadsqlite.helper;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vany.excleuploadsqlite.R;
+import com.vany.excleuploadsqlite.customer.ViewDetails;
 import com.vany.excleuploadsqlite.pojo.Customer;
 
 import java.util.List;
@@ -44,6 +46,10 @@ public class CustomerAdpater extends RecyclerView.Adapter<CustomerAdpater.Custom
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Customer tempObject = myCustomerList.get(position);
+                Intent customerView = new Intent(context, ViewDetails.class);
+                customerView.putExtra("Customer", tempObject);
+                context.startActivity(customerView);
                 Toast.makeText(context, "You Click on the " + position + " this record", Toast.LENGTH_SHORT).show();
             }
         });
